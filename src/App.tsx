@@ -1,5 +1,5 @@
 import { Configuration, OpenAIApi } from 'openai'
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { saveAs } from 'file-saver';
 import CodeMirror from '@uiw/react-codemirror';
 import { tags as t } from '@lezer/highlight';
@@ -10,7 +10,7 @@ function App() {
   })
 
   const openai = new OpenAIApi(configuration)
-  const [prompt, setPrompt] = useState('https://identity.concentrixcx.com/health')
+  const [prompt, setPrompt] = useState('')
   const [result, setResult] = useState<string | undefined>(undefined)
 
   async function generateCypressTest() {
@@ -49,23 +49,27 @@ function App() {
         </div>
         {
           result && (
-            <CodeMirror
-              theme={draculaInit({
-                settings: {
-                  caret: '#c6c6c6',
-                  fontFamily: 'monospace',
-                },
-                styles: [
-                  { tag: t.comment, color: '#6272a4' },
-                ]
-              })}
-              value={result}
-            />
+            <Fragment>
+              <CodeMirror
+                theme={draculaInit({
+                  settings: {
+                    caret: '#c6c6c6',
+                    fontFamily: 'monospace',
+                  },
+                  styles: [
+                    { tag: t.comment, color: '#6272a4' },
+                  ]
+                })}
+                value={result}
+              />
+              <div className=' flex  items-end justify-end'>
+                <button className=" bg-teal-600 p-2 text-white rounded-md hover:bg-teal-700" onClick={() => download()}>Download</button>
+              </div>
+            </Fragment>
+
           )
         }
-        <div className=' flex  items-end justify-end'>
-          <button className=" bg-teal-600 p-2 text-white rounded-md hover:bg-teal-700" onClick={() => download()}>Download</button>
-        </div>
+
       </div>
 
     </div>
