@@ -175,7 +175,7 @@ function App() {
                   <Fragment>
                     <div className=' flex  justify-center space-x-2'>
                       <button className=" bg-teal-600 p-2 text-white rounded-md hover:bg-teal-700" onClick={() => download()}>Download</button>
-                      <button className=" bg-teal-600 p-2 text-white rounded-md hover:bg-teal-700" onClick={() => runCypressTest()}>Run Code</button>
+                      <button className=" bg-teal-600 p-2 text-white rounded-md hover:bg-teal-700" onClick={() => runCypressTest()}>Generate Result</button>
                     </div>
                     <div className='flex justify-center mt-10 w-3/4 mx-auto items-center space-y-2'>
                       {
