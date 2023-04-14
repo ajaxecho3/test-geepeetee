@@ -48,7 +48,7 @@ function App() {
 
     const response = await openai.createCompletion({
       model: 'text-davinci-003',
-      temperature: 0.5,
+      temperature: 0.3,
       max_tokens: 2086,
       top_p: 1,
       frequency_penalty: 0,
@@ -139,7 +139,7 @@ function App() {
 
         {
           isGenerating ?
-            <p>Generating Code....</p>
+            <p className='flex justify-center text-xl tracking-widest'>Generating Code....</p>
             :
             <div className=' space-y-2'>
               <div className=' flex justify-center mt-10 w-3/4 mx-auto items-center space-y-2'>
